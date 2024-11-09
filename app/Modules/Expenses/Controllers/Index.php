@@ -11,13 +11,13 @@ declare(strict_types=1);
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace App\Modules\Budgets\Controllers;
+namespace App\Modules\Expenses\Controllers;
 
 use App\Controllers\BaseController;
 
 class Index extends BaseController
 {
-    protected $folder_directory = 'Modules\\Budgets\\Views\\';
+    protected $folder_directory = 'Modules\\Expenses\\Views\\';
     protected $model;
     protected $data  = [];
     protected $rules = [];

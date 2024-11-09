@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 /**
- * This file is part of CodeIgniter Shield.
+ * This file is part of CodeIgniter 4 framework.
  *
- * (c) CodeIgniter Foundation <admin@codeigniter.com>
+ * (c) 2021 CodeIgniter Foundation <admin@codeigniter.com>
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Config;
 
-use CodeIgniter\Shield\Config\Auth as ShieldAuth;
 use CodeIgniter\Shield\Authentication\Actions\ActionInterface;
 use CodeIgniter\Shield\Authentication\AuthenticatorInterface;
 use CodeIgniter\Shield\Authentication\Authenticators\AccessTokens;
@@ -25,6 +24,7 @@ use CodeIgniter\Shield\Authentication\Passwords\DictionaryValidator;
 use CodeIgniter\Shield\Authentication\Passwords\NothingPersonalValidator;
 use CodeIgniter\Shield\Authentication\Passwords\PwnedValidator;
 use CodeIgniter\Shield\Authentication\Passwords\ValidatorInterface;
+use CodeIgniter\Shield\Config\Auth as ShieldAuth;
 use CodeIgniter\Shield\Models\UserModel;
 
 class Auth extends ShieldAuth

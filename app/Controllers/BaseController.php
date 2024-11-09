@@ -49,6 +49,7 @@ abstract class BaseController extends Controller
     protected $helpers = [
         'url',
         'form',
+        'table',
     ];
 
     /**

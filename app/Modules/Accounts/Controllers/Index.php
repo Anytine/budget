@@ -11,19 +11,21 @@ declare(strict_types=1);
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace App\Modules\Budgets\Controllers;
+namespace App\Modules\Accounts\Controllers;
 
 use App\Controllers\BaseController;
+use App\Modules\Accounts\Models\Accounts;
 
 class Index extends BaseController
 {
-    protected $folder_directory = 'Modules\\Budgets\\Views\\';
-    protected $model;
+    protected $folder_directory = 'Modules\\Accounts\\Views\\';
+    protected Accounts $model;
     protected $data  = [];
     protected $rules = [];
 
     public function __construct()
     {
+        $this->model = new Accounts();
     }
 
     public function index()
@@ -31,11 +33,16 @@ class Index extends BaseController
         if (! user_id()) {
             return redirect()->route('login');
         }
-        $this->data['page_title']  = 'Admin - Index';
-        $this->data['page_header'] = 'Index';
+        $this->data['page_title']  = 'Admin - Accounts';
+        $this->data['page_header'] = 'Accounts';
         $this->data['contents']    = [
             $this->folder_directory . 'index',
         ];
+        $this->data['scripts'] = [
+            $this->folder_directory . 'index-script.tpl',
+        ];
+        $this->data['is_datatables'] = true;
+        $this->data['entries']       = $this->model->findAll();
 
         return self::render();
     }
