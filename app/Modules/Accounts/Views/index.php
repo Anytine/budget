@@ -1,6 +1,12 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
+            <div class="card-header border-0">
+                <div class="d-flex justify-content-between">
+                    <h3 class="card-title"></h3>
+                    <button type="button" class="btn btn-primary ms-auto" onclick="openModal()">Add New</button>
+                </div>
+            </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="table" class="table table-bordered table-hover">
@@ -16,13 +22,14 @@
                         <tbody>
                             <?php
                             foreach ($entries as $index => $entry) {
-                                echo '<tr>';
-                                echo table_td($index + 1);
-                                echo table_td($entry['year']);
-                                echo table_td($entry['total_budget']);
-                                echo table_td($entry['created_at']);
-                                echo table_td($entry['updated_at']);
-                                echo '</tr>';
+                                $output   = [];
+                                $output[] = table_td($index + 1);
+                                $output[] = table_td($entry['name']);
+                                $output[] = table_td($entry['total_budget']);
+                                $output[] = table_td($entry['created_at']);
+                                $output[] = table_td($entry['updated_at']);
+
+                                echo table_tr($output);
                             }
                             ?>
                         </tbody>

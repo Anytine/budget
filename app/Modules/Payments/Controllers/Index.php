@@ -14,16 +14,18 @@ declare(strict_types=1);
 namespace App\Modules\Payments\Controllers;
 
 use App\Controllers\BaseController;
+use App\Modules\Payments\Models\Payments;
 
 class Index extends BaseController
 {
     protected $folder_directory = 'Modules\\Payments\\Views\\';
-    protected $model;
+    protected Payments $model;
     protected $data  = [];
     protected $rules = [];
 
     public function __construct()
     {
+        $this->model = new Payments();
     }
 
     public function index()
@@ -31,11 +33,16 @@ class Index extends BaseController
         if (! user_id()) {
             return redirect()->route('login');
         }
-        $this->data['page_title']  = 'Admin - Index';
-        $this->data['page_header'] = 'Index';
+        $this->data['page_title']  = 'Admin - Payments';
+        $this->data['page_header'] = 'Payments';
         $this->data['contents']    = [
             $this->folder_directory . 'index',
         ];
+        $this->data['js'] = [
+            'assets/system/js/default-datatable-script.js',
+        ];
+        $this->data['is_datatables'] = true;
+        $this->data['entries']       = $this->model->join('at_expenses', 'expense_id = at_expenses.id')->findAll();
 
         return self::render();
     }

@@ -31,11 +31,16 @@ class Index extends BaseController
         if (! user_id()) {
             return redirect()->route('login');
         }
-        $this->data['page_title']  = 'Admin - Index';
-        $this->data['page_header'] = 'Index';
+        $this->data['page_title']  = 'Admin - Budgets';
+        $this->data['page_header'] = 'Budgets';
         $this->data['contents']    = [
             $this->folder_directory . 'index',
         ];
+        $this->data['js'] = [
+            'assets/system/js/default-datatable-script.js',
+        ];
+        $this->data['is_datatables'] = true;
+        $this->data['entries']       = $this->model->findAll();
 
         return self::render();
     }
