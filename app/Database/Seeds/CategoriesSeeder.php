@@ -23,7 +23,7 @@ class CategoriesSeeder extends Seeder
             [
                 'account_id'  => 1,
                 'name'        => 'Core Expenses',
-                'description' => 'Main expenses for the year',
+                'description' => 'Main expenses for the account',
                 'created_at'  => date('Y-m-d H:i:s'),
             ],
         ];

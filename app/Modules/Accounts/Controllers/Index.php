@@ -39,11 +39,18 @@ class Index extends BaseController
             $this->folder_directory . 'index',
         ];
         $this->data['scripts'] = [
-            $this->folder_directory . 'index-script.tpl',
+            'components/dynamic-modal-form.tpl'
+        ];
+
+        $this->data['js'] = [
+            'assets/system/js/default-datatable-script.js',
         ];
         $this->data['is_datatables'] = true;
         $this->data['entries']       = $this->model->findAll();
-
+        $this->data['modal_fields']=[
+            ['name'=>'name','label'=>'Account Name','type'=>'text','required'=>true],
+            ['name'=>'description','label'=>'Account Description ','type'=>'text','required'=>false]
+        ];
         return self::render();
     }
 

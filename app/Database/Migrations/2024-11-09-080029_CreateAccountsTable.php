@@ -25,9 +25,10 @@ class CreateAccountsTable extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'year' => [
-                'type' => 'YEAR',
-                'null' => false,
+            'name' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+                'null'       => false,
             ],
             'total_budget' => [
                 'type'       => 'DECIMAL',

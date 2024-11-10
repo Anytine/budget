@@ -21,7 +21,7 @@ class AccountsSeeder extends Seeder
     {
         $data = [
             [
-                'year'         => 2025,
+                'name'         => 2025,
                 'total_budget' => 42000,
                 'owner_id'     => 1,
                 'created_at'   => date('Y-m-d H:i:s'),

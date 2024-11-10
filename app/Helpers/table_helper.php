@@ -11,6 +11,15 @@ declare(strict_types=1);
  * the LICENSE file that was distributed with this source code.
  */
 
+if (! function_exists('table_tr')) {
+    function table_tr($contents, array $attributes = [])
+    {
+        $rows = is_array($contents) ? implode(PHP_EOL, $contents) : $contents;
+
+        return '<tr ' . stringify_attributes($attributes) . ">{$rows}</tr>";
+    }
+}
+
 if (! function_exists('table_th')) {
     function table_th($text, array $attributes = [], string $empty_placeholder = '-')
     {
