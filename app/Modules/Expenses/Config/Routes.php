@@ -12,8 +12,8 @@ declare(strict_types=1);
  */
 
 $routes->group(
-    'budgets',
-    ['namespace' => 'App\Modules\Budgets\Controllers'],
+    'expenses',
+    ['namespace' => 'App\Modules\Expenses\Controllers'],
     static function ($routes) {
         $routes->get('/', 'Index::index');
     }

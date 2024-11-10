@@ -11,13 +11,13 @@ declare(strict_types=1);
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace App\Modules\Budgets\Controllers;
+namespace App\Modules\Dashboard\Controllers;
 
 use App\Controllers\BaseController;
 
 class Index extends BaseController
 {
-    protected $folder_directory = 'Modules\\Budgets\\Views\\';
+    protected $folder_directory = 'Modules\\Dashboard\\Views\\';
     protected $model;
     protected $data  = [];
     protected $rules = [];
@@ -31,6 +31,7 @@ class Index extends BaseController
         if (! user_id()) {
             return redirect()->route('login');
         }
+
         $this->data['page_title']  = 'Admin - Index';
         $this->data['page_header'] = 'Index';
         $this->data['contents']    = [

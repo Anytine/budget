@@ -11,10 +11,14 @@ declare(strict_types=1);
  * the LICENSE file that was distributed with this source code.
  */
 
-$routes->group(
-    'budgets',
-    ['namespace' => 'App\Modules\Budgets\Controllers'],
-    static function ($routes) {
-        $routes->get('/', 'Index::index');
-    }
-);
+namespace App\Modules\Payments\Models;
+
+use CodeIgniter\Model;
+
+class Payments extends Model
+{
+    protected $table          = 'at_payments';
+    protected $useTimestamps  = true;
+    protected $useSoftDeletes = true;
+    protected $allowedFields  = [];
+}
